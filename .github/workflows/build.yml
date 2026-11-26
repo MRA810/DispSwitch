@@ -38,7 +38,7 @@ jobs:
       - name: Build package
         run: npm run ${{ matrix.script }} -- --publish never
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: dispswitch-${{ runner.os }}
           path: ${{ matrix.artifact }}
