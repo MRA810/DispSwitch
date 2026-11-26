@@ -1,0 +1,90 @@
+{
+  "name": "dpsw",
+  "productName": "DispSwitch",
+  "version": "1.0.0",
+  "description": "One-click HDMI / DisplayPort input switcher for DDC/CI monitors (built for the Gigabyte G27F)",
+  "homepage": "https://github.com/MRA810/DispSwitch#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MRA810/DispSwitch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MRA810/DispSwitch/issues"
+  },
+  "author": {
+    "name": "Shuvo",
+    "email": "shuvo@example.com"
+  },
+  "license": "ISC",
+  "main": "main.js",
+  "type": "commonjs",
+  "keywords": [
+    "ddc",
+    "ddc-ci",
+    "ddcutil",
+    "monitor",
+    "input-switch",
+    "hdmi",
+    "displayport",
+    "electron",
+    "gigabyte-g27f"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux deb --win nsis",
+    "dist:linux": "electron-builder --linux deb",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.mra.dpsw",
+    "productName": "DispSwitch",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "index.js",
+      "style.css"
+    ],
+    "extraResources": [
+      {
+        "from": "scripts/",
+        "to": "scripts/",
+        "filter": [
+          "*"
+        ]
+      }
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Utility",
+      "maintainer": "Shuvo <shuvo@example.com>"
+    },
+    "deb": {
+      "depends": [
+        "ddcutil"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.2.0",
+    "electron-builder": "^26.15.3",
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}

@@ -1,0 +1,39 @@
+name: Monitor compatibility report
+description: Tell us whether DispSwitch works with your monitor
+labels: [compatibility]
+body:
+  - type: input
+    id: monitor
+    attributes:
+      label: Monitor model
+    validations:
+      required: true
+  - type: dropdown
+    id: works
+    attributes:
+      label: Does it work?
+      options:
+        - "Yes, fully"
+        - "Partly (see notes)"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - Windows
+    validations:
+      required: true
+  - type: textarea
+    id: codes
+    attributes:
+      label: Input codes
+      description: "Linux: output of `ddcutil capabilities | grep -A10 'Feature: 60'`"
+      render: shell
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes

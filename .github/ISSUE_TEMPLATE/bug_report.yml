@@ -1,0 +1,62 @@
+name: Bug report
+description: Something isn't working
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: DispSwitch version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - Windows 11
+        - Windows 10
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: OS version / distribution
+      placeholder: "Ubuntu 24.04, Windows 11 24H2, ..."
+  - type: input
+    id: monitor
+    attributes:
+      label: Monitor model
+      placeholder: "Gigabyte G27F"
+    validations:
+      required: true
+  - type: input
+    id: connection
+    attributes:
+      label: How is the monitor connected to this computer?
+      placeholder: "DisplayPort, HDMI, USB-C to DP, ..."
+  - type: textarea
+    id: ddc
+    attributes:
+      label: DDC/CI output
+      description: |
+        Linux: output of `ddcutil detect` and `ddcutil getvcp 60`
+        Windows: output of `powershell -NoProfile -ExecutionPolicy Bypass -File scripts\ddc_helper.ps1 get`
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: DDC/CI is turned on in the monitor's on-screen menu
+          required: true
+        - label: I searched existing issues
+          required: true

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DispSwitch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+
+    <div class="device">
+
+        <div class="head">
+            <h1 class="wordmark">Disp<span>Switch</span></h1>
+            <div class="readout">
+                <span class="readout-label">active input</span>
+                <span class="readout-value" id="readoutValue">HDMI</span>
+            </div>
+        </div>
+
+        <div class="rack">
+            <div class="rail"></div>
+            <div class="rail-fill" id="railFill"></div>
+
+            <button class="port-switch active" data-input="hdmi" id="btnHdmi" aria-pressed="true">
+                <span class="led"></span>
+                <span class="icon">
+                    <svg viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 8H54L47 33H17L10 8Z" stroke="currentColor" stroke-width="3"
+                            stroke-linejoin="round" />
+                        <path d="M22 8V4H42V8" stroke="currentColor" stroke-width="3" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <span class="labels">
+                    <span class="port-name">HDMI</span>
+                    <span class="port-sub">Port 1</span>
+                </span>
+                <span class="bars"><span></span><span></span><span></span></span>
+            </button>
+
+            <button class="port-switch" data-input="dp" id="btnDp" aria-pressed="false">
+                <span class="led"></span>
+                <span class="icon">
+                    <svg viewBox="0 0 64 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6H46L54 15V34H10V6Z" stroke="currentColor" stroke-width="3"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <span class="labels">
+                    <span class="port-name">DisplayPort</span>
+                    <span class="port-sub">Port 2</span>
+                </span>
+                <span class="bars"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+
+        <div class="footer">
+            <span class="footer-left">
+                <span class="footer-dot live" id="footerDot"></span>
+                <span id="footerText">Signal locked</span>
+            </span>
+            <span>v1.0</span>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>
